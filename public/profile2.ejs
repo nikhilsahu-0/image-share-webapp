@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/css/profile2.css" />
+    <title>Display</title>
+  </head>
+  <body>
+    <div class="buttons__1">
+      <a href="/" class="button__1">HOME</a>
+      <% if(data.loggedUser){ %>
+      <a href="/logout" class="button__1">LOGOUT</a>
+      <% } %>
+    </div>
+    <div class="card" data-state="#about">
+      <div class="card-header">
+        <div
+          class="card-cover"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80');
+          "
+        ></div>
+        <img
+          class="card-avatar"
+          src="<%= data.currUser.photo %>"
+          alt="avatar"
+        />
+        <h1 class="card-fullname"><%= data.currUser.name %></h1>
+        <h2 class="card-jobtitle"><%= data.currUser.email %></h2>
+      </div>
+      <div class="card-main">
+        <div class="card-section is-active" id="about">
+          <div class="card-content">
+            <div class="card-subtitle">ABOUT</div>
+            <p class="card-desc"><%= data.currUser.bio %></p>
+          </div>
+        </div>
+        <div class="card-buttons">
+          <button data-section="#about" class="is-active">ABOUT</button>
+          <button
+            data-section="#experience"
+            onclick="location.href = `${window.location.href}/posts`;"
+          >
+            POSTS
+          </button>
+          <% if(data.loggedUser && data.loggedUser.email ===
+          data.currUser.email){ %>
+          <button
+            data-section="#contact"
+            onclick="location.href = `${window.location.href}/edit-profile`;"
+          >
+            EDIT PROFILE
+          </button>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

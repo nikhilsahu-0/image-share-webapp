@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./css/1.css" />
+    <title>Display</title>
+  </head>
+  <body>
+    <a href="explore">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      EXPLORE
+    </a>
+    <% if(data.flag){%>
+    <a href="<%=`p/${data.user._id}`%>">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      MY PROFILE
+    </a>
+    <a href="<%= `p/${data.user._id}/upload`%>">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      UPLOAD POST
+    </a>
+    <% } else {%>
+    <a href="signup">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      SIGN-UP
+    </a>
+    <a href="login">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      LOGIN
+    </a>
+    <% } %> <% if(data.user){ %>
+    <div class="buttons__1">
+      <a href="/logout" class="button__1">LOGOUT</a>
+    </div>
+    <% } %>
+  </body>
+</html>
